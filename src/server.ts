@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import userRouter from "./routes/user.route";
 
 dotenv.config();
 
@@ -14,6 +15,9 @@ app.get("/", (req, res) => {
     message: "TypeScript Backend Running 🚀",
   });
 });
+
+
+app.use("/api/user", userRouter);
 
 const PORT = process.env.PORT || 5000;
 
