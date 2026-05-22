@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
+import postRouter from "./routes/post.routes.js";
+import commentRouter from "./routes/comment.route.js";
 
 dotenv.config();
 
@@ -23,7 +25,8 @@ app.use((req, res, next) => {
 
 
 app.use("/api/user", userRouter);
-
+app.use("/api/post", postRouter);
+app.use("/api/comment", commentRouter);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
